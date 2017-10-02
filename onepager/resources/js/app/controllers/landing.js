@@ -1,14 +1,13 @@
-app.controller('landingController', ['$scope', 'dev4UService', '$http', 'API_URL', 'Upload',
-    function($scope, dev4UService, $http, API_URL, Upload) {
+app.controller('landingController', ['$scope', 'dev4UService', '$http', 'API_URL', '$timeout',
+    function($scope, dev4UService, $http, API_URL, $timeout) {
 
-        var imageData;
-
+        //retrieve employees listing from API
         $scope.updateList = function () {
             $http({
                 method: 'GET',
-                url: API_URL + "products/list"
+                url: API_URL + "landings/list"
             }).then(function (response){
-                $scope.products = response.data;
+                $scope.landingListData = response.data;
             },function (error){
                 console.log(error);
             });
@@ -20,43 +19,21 @@ app.controller('landingController', ['$scope', 'dev4UService', '$http', 'API_URL
             dev4UService.defaultToggle(
                 modalstate,
                 id,
-                'product',
-                {'add':'Добавить','edit':'Редактировать'}
+                'landing',
+                {'add':'Добавить данные','edit':'Редактировать данные'}
             );
         };
 
         //save new record / update existing record
         $scope.save = function(modalstate, id) {
-            $scope.product.image = imageData.image;
-            $scope.product.image_thumb = imageData.thumb;
-            dev4UService.defaultSave(modalstate, $scope.product, 'product');
-        };
-
-        $scope.upload = function (file) {
-            if (!file) {
-                return;
-            }
-            Upload.upload({
-                url: API_URL + "upload",
-                data: { file: file }
-            }).then(function (resp) {
-                console.log(resp.data);
-                imageData = resp.data;
-                $scope.image = resp.data.image;
-                $scope.image_thumb = resp.data.thumb;
-            }, function (resp) {
-                console.log('Error status: ' + resp.status);
-            }, function (evt) {
-                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-            });
+            dev4UService.defaultSave(modalstate, $scope.landing, 'landing');
         };
 
         //delete record
         $scope.confirmDelete = function(id) {
-            var isConfirmDelete = confirm('Удалить позицию меню?');
+            var isConfirmDelete = confirm('Удалить пользователя?');
             if (isConfirmDelete) {
-                dev4UService.defaultDelete(id, 'product');
+                dev4UService.defaultDelete(id, 'user');
             }
         }
     }
