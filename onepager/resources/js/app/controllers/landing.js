@@ -1,4 +1,4 @@
-app.controller('productController', ['$scope', 'dev4UService', '$http', 'API_URL', 'Upload',
+app.controller('landingController', ['$scope', 'dev4UService', '$http', 'API_URL', 'Upload',
     function($scope, dev4UService, $http, API_URL, Upload) {
 
         var imageData;
