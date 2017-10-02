@@ -8,24 +8,45 @@ body > .slider {
     height: 260px;
     width: 100%;
     /*background-color: #faac3d;*/
-    background-color: #e8aa48;
 }
 .container {
     min-width: 752px !important;
 }
+#myCarousel {
+    height: 240px;
+    overflow: hidden;
+}
+    #myCarousel .carousel-inner {
+        height: 100%;
+    }
+        #myCarousel .carousel-inner > .item {
+            height: 100%;
+        }
+            #myCarousel .carousel-inner > .item > img {
+                height: 100%;
+            }
 @media (min-width: 752px) {
     body > .slider {
-        height: 260px;
+        height: 240px;
+    }
+    #myCarousel {
+        height: 240px;
     }
 }
 @media (min-width: 992px) {
     body > .slider {
-        height: 333px;
+        height: 313px;
+    }
+    #myCarousel {
+        height: 313px;
     }
 }
 @media (min-width: 1200px) {
     body > .slider {
-        height: 400px;
+        height: 380px;
+    }
+    #myCarousel {
+        height: 380px;
     }
 }
 h1,h2,h3 {
@@ -36,11 +57,11 @@ footer {
 }
 nav.slide-menu {
     display: block;
-    width: 100%;
+    height: 100%;
     position: relative;
     text-align: right;
     height: 100px;
-    margin-top: -82px;
+    margin-top: -100px;
 }
     nav.slide-menu div {
         list-style: none;
@@ -49,31 +70,31 @@ nav.slide-menu {
         display: inline-block;
         vertical-align: bottom;
         background-color: #f7912b;
-        padding: 7px 35px 2px 35px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        padding: 7px 55px 2px 55px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
         margin-top: 67px;
     }
-        nav.slide-menu div:nth-child(2) {
-            padding: 12px 35px 7px 35px;
-            margin-top: -5px;
-        }
-        nav.slide-menu div:nth-child(3) {
-            padding: 17px 35px 12px 35px;
-            margin-top: -5px;
-        }
-        nav.slide-menu div:nth-child(4) {
-            padding: 22px 35px 17px 35px;
-            margin-top: -5px;
-        }
+        /*nav.slide-menu div:nth-child(2) {*/
+            /*padding: 12px 35px 7px 35px;*/
+            /*margin-top: -5px;*/
+        /*}*/
+        /*nav.slide-menu div:nth-child(3) {*/
+            /*padding: 17px 35px 12px 35px;*/
+            /*margin-top: -5px;*/
+        /*}*/
+        /*nav.slide-menu div:nth-child(4) {*/
+            /*padding: 22px 35px 17px 35px;*/
+            /*margin-top: -5px;*/
+        /*}*/
         nav.slide-menu div a {
             color: #f2f3f6;
             font-size: 1.2em;
         }
 .block-shadow {
-    -webkit-box-shadow: 1px -2px 2px 0 rgba(0,0,0,0.65);
-    -moz-box-shadow: 1px -2px 2px 0 rgba(0,0,0,0.65);
-    box-shadow: 1px -2px 2px 0 rgba(0,0,0,0.65);
+    -webkit-box-shadow: 1px -1px 1px 0 rgba(71,71,71,0.5);
+    -moz-box-shadow: 1px -1px 1px 0 rgba(71,71,71,0.5);
+    box-shadow: 1px -1px 1px 0 rgba(71,71,71,0.5);
 }
 .block-panel {
     padding: 30px 0 50px 0;
@@ -88,11 +109,11 @@ nav.slide-menu {
     background-color: #e4e7ea;
 }
     .block-panel .chevron-down {
-        width: 100px;
+        width: 130px;
         height: 30px;
-        background: url(/images/chevron_down.png) no-repeat 35px 10px;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        background: url(/images/chevron_down.png) no-repeat 45px 10px;
+        border-top-left-radius: 23px;
+        border-top-right-radius: 23px;
         position: absolute;
         margin-top: -60px;
         margin-bottom: 0;
@@ -119,7 +140,7 @@ nav.slide-menu {
 }
     .technologies .title {
         width: 150px;
-        background-color: #e8aa48;
+        background-color: #f7912b;
         color: #fff;
         border-radius: 25px;
         text-align: center;

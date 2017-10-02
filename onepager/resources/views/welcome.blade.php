@@ -15,27 +15,26 @@
         </div>
     </header>
     <div class="slider">
-        <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                @foreach ($slides as $number => $slide)
+                    <li data-target="#myCarousel" data-slide-to="{{ $number }}"
+                        class="@if ($loop->first) active @endif"></li>
+                @endforeach
+            </ol>
 
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    @foreach ($slides as $number => $slide)
-                        <li data-target="#myCarousel" data-slide-to="{{ $number }}"
-                            class="@if ($loop->first) active @endif"></li>
-                    @endforeach
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                    @foreach ($slides as $slide)
-                        <div class="item @if ($loop->first) active @endif">
-                            <img src="{{ $slide['image'] }}" alt="{{ $slide['title'] }}">
-                        </div>
-                    @endforeach
-                </div>
-
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                @foreach ($slides as $slide)
+                    <div class="item @if ($loop->first) active @endif">
+                        <img src="{{ $slide['image'] }}" alt="{{ $slide['title'] }}">
+                    </div>
+                @endforeach
             </div>
+
+        </div>
+        <div class="container">
 
             <nav class="slide-menu">
                 @foreach ($menu as $item)
