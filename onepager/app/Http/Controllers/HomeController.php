@@ -96,7 +96,7 @@ class HomeController extends Controller
 
             Mail::send('emails.request', ['request'=>$requestEntity], function ($message) {
                 $message->from('noreply@gmate.ru', 'Gmate');
-                $message->to('enot.work@gmail.com');
+                $message->to('gmate.rus@gmail.com')->cc('enot.work@gmail.com');
             });
 
             return response()->json(['success'=>true]);
