@@ -7,6 +7,9 @@ body > .slider {
     margin-top: 40px;
     height: 260px;
     width: 100%;
+    max-width: 3000px;
+    margin-left: auto;
+    margin-right: auto;
     /*background-color: #faac3d;*/
 }
 .container {
@@ -21,9 +24,10 @@ body > .slider {
     }
         #myCarousel .carousel-inner > .item {
             height: 100%;
+            overflow: hidden;
         }
             #myCarousel .carousel-inner > .item > img {
-                height: 100%;
+                width: 3000px;
             }
 @media (min-width: 752px) {
     body > .slider {
@@ -47,6 +51,15 @@ body > .slider {
     }
     #myCarousel {
         height: 380px;
+    }
+}
+
+@media (min-width: 1600px) {
+    body > .slider {
+        height: 640px;
+    }
+    #myCarousel {
+        height: 640px;
     }
 }
 h1,h2,h3 {
