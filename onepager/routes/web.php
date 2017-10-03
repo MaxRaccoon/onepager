@@ -17,6 +17,8 @@ Route::namespace('Auth')->group(function () {
 //    Route::get('register', 'RegisterController@create');
 });
 
+Route::post('/sendRequest', 'HomeController@sendRequest');
+
 
 Route::middleware(['auth'])->group(function () {
     Route::namespace('Admin')->group(function () {

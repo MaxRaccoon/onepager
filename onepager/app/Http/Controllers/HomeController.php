@@ -8,6 +8,8 @@ use App\Menu;
 use App\Slider;
 use App\Technology;
 use App\Product;
+use App\Request AS RequestEntity;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -65,5 +67,41 @@ class HomeController extends Controller
             'technologies' => $technologyArray,
             'products' => $productsArray
         ]);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function sendRequest(Request $request)
+    {
+        try {
+            $name = $request->input('name');
+            $dtBorn = $request->input('dt_born');
+            $placeBorn = $request->input('place_born');
+            $postAddress = $request->input('post_address');
+            $phone = $request->input('phone');
+            $email = $request->input('email');
+
+            $requestEntity = new RequestEntity();
+            $requestEntity->name = $name;
+            $requestEntity->dt_born = $dtBorn;
+            $requestEntity->place_born = $placeBorn;
+            $requestEntity->post_address = $postAddress;
+            $requestEntity->phone = $phone;
+            $requestEntity->email = $email;
+            $requestEntity->created_at = new \DateTime();
+
+            $requestEntity->save();
+
+            Mail::send('emails.request', ['request'=>$requestEntity], function ($message) {
+                $message->from('noreply@gmate.ru', 'Gmate');
+                $message->to('enot.work@gmail.com');
+            });
+
+            return response()->json(['success'=>true]);
+        } catch (\Exception $e) {
+            return response()->json(['success'=>false, 'msg'=>$e->getMessage()]);
+        }
     }
 }

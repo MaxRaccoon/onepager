@@ -169,3 +169,31 @@ nav.slide-menu {
         padding: 10px;
         height: 100px;
     }
+div.center {
+    text-align: center;
+    margin: auto;
+}
+.btn-orange {
+    background-color: #faac3d;
+    font-family: "HelveticaNeueCyr";
+    color: #3d4144;
+    border-radius: 25px;
+    padding: 10px 45px 10px 45px;
+    font-size: 1em;
+    border: 1px solid #3d4144;
+}
+    .btn-orange:hover {
+        background-color: #f7912b;
+        color: #3d4144;
+    }
+.query_text {
+    font-family: "HelveticaNeueCyr LightItalic";
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.btn {
+    border-radius: 25px;
+}
+.hide {
+    display: none;
+}

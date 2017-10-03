@@ -109,6 +109,16 @@
                     <div class="description">{{ $technology['description'] }}</div>
                 </div>
             @endforeach
+            <br /><br />
+            <div class="center">
+                <strong class="query_text">Хотите принять участие в программе по льготной реализации глюкометров
+                    Gmate Life?</strong>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-orange btn-lg" data-toggle="modal" data-target="#myModal">
+                    Да! Подать заявку
+                </button>
+            </div>
+            <br /><br />
         </div>
     </div>
     <div class="block-panel dark-gray" id="product">
@@ -121,6 +131,115 @@
                     <div class="description">{{ $product['description'] }}</div>
                 </div>
             @endforeach
+            <br /><br />
+            <div class="center">
+                <strong class="query_text">Хотите принять участие в программе по льготной реализации глюкометров
+                    Gmate Life?</strong>
+                &nbsp;&nbsp;
+                <button type="button" class="btn btn-orange btn-lg" data-toggle="modal" data-target="#myModal">
+                    Да! Подать заявку
+                </button>
+            </div>
+            <br /><br />
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Заявка на участие в программе
+                        льготной реализации глюкометра Gmate Life</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="query_request">
+                        {{ csrf_field() }}
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></div>
+                                <input type="text" class="form-control" id="name" name="name"
+                                       placeholder="Фамилия Имя Отчество">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="dt_born">Дата рождения</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></div>
+                                        <input type="text" class="form-control datetimepicker" id="dt_born"
+                                               name="dt_born" placeholder="{{  Carbon\Carbon::today()->format('d.m.Y') }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="place_born">Место рождения</label>
+                                    <input type="text" class="form-control" id="place_born"
+                                           name="place_born" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label for="post_address">Почтовый адрес</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-location-arrow" aria-hidden="true"></i></div>
+                                        <input type="text" class="form-control" id="post_address"
+                                               name="post_address" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                    <label for="phone">Номер телефона</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                                        <input type="text" class="form-control phone" id="phone"
+                                               name="phone" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+                                <input type="email" class="form-control" id="email" name="email"
+                                       placeholder="Ваш E-mail">
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="apply_check"> Согласие на обработку персональных данных
+                                    в соответствии с Федеральным законом от 27.07.2006 N 152-ФЗ
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="bs-callout bs-callout-danger" id="error">
+                            <h4>Нужно заполнить все поля!</h4>
+                        </div>
+                        <div class="bs-callout bs-callout-info" id="success">
+                            <h4>Спасибо! Ваш запрос отправлен</h4>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-orange" id="sendQuery">Отправить заявку</button>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
