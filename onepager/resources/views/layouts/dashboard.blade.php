@@ -259,6 +259,9 @@
                         <li {{ (Request::is('admin/products') ? 'class="active"' : '') }}>
                             <a href="{{ url ('admin/products') }}"><i class="fa fa-cube" aria-hidden="true"></i> Продукты</a>
                         </li>
+                        <li {{ (Request::is('admin/requests') ? 'class="active"' : '') }}>
+                            <a href="{{ url ('admin/requests') }}"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Запросы</a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

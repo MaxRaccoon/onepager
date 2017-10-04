@@ -85,6 +85,14 @@ Route::middleware(['auth'])->group(function () {
             Route::post('slider', 'SliderController@save');
             Route::get('slider/{id}', 'SliderController@getOne')->where('id', '[0-9]+');
             Route::delete('slider/{id}', 'SliderController@destroy')->where('id', '[0-9]+');
+
+            //Request
+            Route::prefix('requests')->group(function () {
+                Route::get('', 'RequestController@index');
+                Route::get('list', 'RequestController@getList');
+            });
+            Route::get('request/{id}', 'RequestController@getOne')->where('id', '[0-9]+');
+            Route::delete('request/{id}', 'RequestController@destroy')->where('id', '[0-9]+');
         });
     });
 });
