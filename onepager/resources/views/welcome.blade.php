@@ -34,15 +34,15 @@
             </div>
 
         </div>
-        <div class="container">
+    </div>
+    <div class="container">
 
-            <nav class="slide-menu">
-                @foreach ($menu as $item)
-                    <div class="block-shadow"><a href="{{ $item['url'] }}">{{ $item['title'] }}</a></div>
-                @endforeach
-            </nav>
+        <nav class="slide-menu">
+            @foreach ($menu as $item)
+                <div class="block-shadow"><a href="{{ $item['url'] }}">{{ $item['title'] }}</a></div>
+            @endforeach
+        </nav>
 
-        </div>
     </div>
     <div class="block-panel white" id="company">
         <div class="container">
@@ -52,7 +52,7 @@
                 {{ $keys['CompanyDescription'] }}
             </p>
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-sm-6 col-xs-12">
                     <div class="description">
                         <div id="map" style="width: 100%; height: 400px;"></div>
                     </div>
@@ -89,7 +89,7 @@
                         }
                     </script>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-sm-6 col-xs-12">
                     <div class="description">
                         <h3>{{ $keys['ContactTitle'] }}</h3>
                         {{ $keys['ContactDescription'] }}
