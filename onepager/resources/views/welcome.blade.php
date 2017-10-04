@@ -46,7 +46,7 @@
     </div>
     <div class="block-panel white" id="company">
         <div class="container">
-            <div class="chevron-down block-shadow">&nbsp;</div>
+            <a href="#tehnlogy"><div class="chevron-down block-shadow">&nbsp;</div></a>
             <h1>{{ $keys['H1'] }}</h1>
             <p class="description">
                 {{ $keys['CompanyDescription'] }}
@@ -96,19 +96,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="block-panel gray" id="tehnlogy">
-        <div class="container">
-            <div class="chevron-down block-shadow">&nbsp;</div>
-            <h2>{{ $keys['TehnlogyTitle'] }}</h2>
-            <p>{{ $keys['TehnlogyDescription'] }}</p>
-            @foreach($technologies AS $technology)
-                <div class="technologies">
-                    <div class="title">{!! $technology['title'] !!}</div>
-                    <div class="description">{{ $technology['description'] }}</div>
-                </div>
-            @endforeach
+
             <br /><br />
             <div class="center">
                 <strong class="query_text">Хотите принять участие в программе по льготной реализации глюкометров
@@ -121,9 +109,22 @@
             <br /><br />
         </div>
     </div>
+    <div class="block-panel gray" id="tehnlogy">
+        <div class="container">
+            <a href="#product"><div class="chevron-down block-shadow">&nbsp;</div></a>
+            <h2>{{ $keys['TehnlogyTitle'] }}</h2>
+            <p>{{ $keys['TehnlogyDescription'] }}</p>
+            @foreach($technologies AS $technology)
+                <div class="technologies">
+                    <div class="title">{!! $technology['title'] !!}</div>
+                    <div class="description">{{ $technology['description'] }}</div>
+                </div>
+            @endforeach
+        </div>
+    </div>
     <div class="block-panel dark-gray" id="product">
         <div class="container">
-            <div class="chevron-down block-shadow">&nbsp;</div>
+            <a href="#company"><div class="chevron-down block-shadow">&nbsp;</div></a>
             <h2>{{ $keys['ProductTitle'] }}</h2>
             @foreach($products AS $product)
                 <div class="products">
